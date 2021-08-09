@@ -1,0 +1,19 @@
+<form [formGroup]=addbalanceForm (ngSubmit)="submit(addbalanceForm)">
+  <div class="form-group">
+    <!-- <input type="text" formControlName="drugid" class="form-control" placeholder="Enter Store"> -->
+    <!-- <input type="text" formControlName="storeid" class="form-control" placeholder="Enter Drug"> -->
+    <label for="select drug">Select Drug:
+      <select formControlName="drugid" class="custom-select">
+        <option value=""></option>
+        <option *ngFor="let drug of druges" value="{{drug.id}}">{{drug.name}}</option>
+      </select>
+    </label>
+    <label for="select store">Select Store:
+      <select formControlName="storeid" class="custom-select">
+        <option value=""></option>
+        <option *ngFor="let store of stores" value="{{store.id}}">{{store.name}}</option>
+      </select>
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

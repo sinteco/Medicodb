@@ -1,0 +1,22 @@
+<div class="list row">
+  <a routerLink="/adddrug" class="btn btn-primary">Add Drug</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"> Drug Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let drug of druges; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{drug.name}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="delete(drug.id)">Delete</button>
+          <button class="btn btn-warning" (click)="edit(drug)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

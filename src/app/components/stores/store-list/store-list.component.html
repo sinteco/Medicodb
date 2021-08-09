@@ -1,0 +1,22 @@
+<div class="list row">
+  <a routerLink="/addstore" class="btn btn-primary">Add Store</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"> Store Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let store of Stores; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{store.name}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="delete(store.id)">Delete</button>
+          <button class="btn btn-warning" (click)="edit(store)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
