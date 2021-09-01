@@ -22,6 +22,12 @@ export class BalanceService {
   getById(id:string): Observable<any>{
     return this.modelRef.doc(id).valueChanges();
   }
+  getBydrugid(id:string): Observable<any>{
+    return this.db.collection(this.dbPath, ref=>ref.where('drugid','==',id)).valueChanges();
+  }
+  getBystoreid(id:string): Observable<any>{
+    return this.db.collection(this.dbPath, ref=>ref.where('storeid','==',id)).valueChanges();
+  }
 
   create(drug: Balance): any {
     return this.modelRef.add({ ...drug });

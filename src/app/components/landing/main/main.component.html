@@ -4,26 +4,25 @@
     <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
     <div class="input-group input-group-lg">
       <input [(ngModel)]="search" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
-      <button (click)="searchdrug()" type="button" class="btn btn-outline-primary">search</button>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col"> Drug Name</th>
-            <!-- <th scope="col">Action</th> -->
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let drug of druges; let i = index">
-            <th scope="row">{{i+1}}</th>
-            <td>{{drug.name}}</td>
-            <!-- <td>
-              <button class="btn btn-danger" (click)="delete(drug.id)">Delete</button>
-              <button class="btn btn-warning" (click)="edit(drug)">Edit</button>
-            </td> -->
-          </tr>
-        </tbody>
-      </table>
+      <button (keyup.enter)="searchdrug()" (click)="searchdrug()" type="button" class="btn btn-outline-primary">Search</button>
+      <div class="row col-md-12"><br>
+        <div class="col-md-3" *ngFor="let drug of searchResult; let i = index">
+          <br>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{drug}}</h5>
+              <p class="card-text">details is here...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="this.empty" class="input-group input-group-lg">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Result is Empty !</h5>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

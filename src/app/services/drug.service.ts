@@ -28,7 +28,8 @@ export class DrugService {
   }
 
   search(drugname: any): AngularFirestoreCollection<Drug>{
-    return this.db.collection(this.dbPath, ref=>ref.where('name', '>=', drugname).where('name', '<=', drugname));
+    //ref=>ref.where('name', '>=', drugname).where('name', '<=', drugname)
+    return this.db.collection(this.dbPath, ref=>ref.orderBy('name').startAt(drugname).endAt(drugname+ '\uf8ff'));
   }
 
   update(id: string, data: any): Promise<void> {

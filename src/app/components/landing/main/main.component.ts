@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Drug } from 'src/app/models/drug.model';
+import { Store } from 'src/app/models/store.model';
+import { BalanceService } from 'src/app/services/balance.service';
 import { DrugService } from 'src/app/services/drug.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-main',
@@ -10,13 +13,15 @@ import { DrugService } from 'src/app/services/drug.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private drugService:DrugService) { }
+  constructor(private drugService:DrugService,private balanceService:BalanceService, private storeService:StoreService) { }
 
   ngOnInit(): void {
   }
 
   search:any;
   druges?:Drug[];
+  empty: boolean = false;
+  searchResult?:SearchResult[];
 
   searchdrug(){
     this.drugService.search(this.search).snapshotChanges().pipe(
@@ -26,8 +31,30 @@ export class MainComponent implements OnInit {
         )
       )
     ).subscribe(data => {
-      this.druges = data;
+      this.druges = data;//drug data
+      let sresult = new SearchResult();
+      data.forEach(element => {
+        sresult.drug = element as Drug;//set
+        this.balanceService.getBydrugid(element['id']).subscribe(result=>{//balance data
+          result.forEach((element: any) => {
+            this.storeService.getById(element['storeid']).subscribe(value=>{//store data
+              sresult.store = value;//set
+            });
+          });
+        });
+      });
+      this.searchResult?.push(sresult);
+      console.log(this.searchResult);
+      if (data.length === 0) {
+        this.empty = true;
+      } else {
+        this.empty = false;
+      }
     });
   }
 
+}
+export class SearchResult{
+  store?:Store[]
+  drug?:Drug
 }

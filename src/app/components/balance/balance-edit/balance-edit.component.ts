@@ -60,7 +60,6 @@ export class BalanceEditComponent implements OnInit {
       )
     ).subscribe(data => {
       this.stores = data;
-      console.log(data);
     });
   }
 
