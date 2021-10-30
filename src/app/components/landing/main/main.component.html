@@ -6,12 +6,14 @@
       <input [(ngModel)]="search" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
       <button (keyup.enter)="searchdrug()" (click)="searchdrug()" type="button" class="btn btn-outline-primary">Search</button>
       <div class="row col-md-12"><br>
-        <div class="col-md-3" *ngFor="let drug of searchResult; let i = index">
+        <div class="col-md-3" *ngFor="let result of searchResult; let i = index">
+          <div *ngFor="let store of result.store | keyvalue">
           <br>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{drug}}</h5>
-              <p class="card-text">details is here...</p>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{store.value}}</h5>
+                <p class="card-text">details is here...</p>
+              </div>
             </div>
           </div>
         </div>

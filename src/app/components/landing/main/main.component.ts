@@ -21,9 +21,10 @@ export class MainComponent implements OnInit {
   search:any;
   druges?:Drug[];
   empty: boolean = false;
-  searchResult?:SearchResult[];
+  searchResult:SearchResult[] = [];
 
   searchdrug(){
+    this.searchResult = [];
     this.drugService.search(this.search).snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -34,16 +35,17 @@ export class MainComponent implements OnInit {
       this.druges = data;//drug data
       let sresult = new SearchResult();
       data.forEach(element => {
-        sresult.drug = element as Drug;//set
+        // sresult.drug = element as Drug;//set
         this.balanceService.getBydrugid(element['id']).subscribe(result=>{//balance data
           result.forEach((element: any) => {
             this.storeService.getById(element['storeid']).subscribe(value=>{//store data
-              sresult.store = value;//set
+              sresult.drug = element as Drug;//set drug data
+              sresult.store = value;//set store data
             });
           });
         });
       });
-      this.searchResult?.push(sresult);
+      this.searchResult.push(sresult);
       console.log(this.searchResult);
       if (data.length === 0) {
         this.empty = true;
