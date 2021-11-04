@@ -40,7 +40,7 @@ export class MainComponent implements OnInit {
           result.forEach((element: any) => {
             this.storeService.getById(element['storeid']).subscribe(value=>{//store data
               sresult.drug = element as Drug;//set drug data
-              sresult.store = value;//set store data
+              sresult.store.push(value);//set store data
             });
           });
         });
@@ -57,6 +57,6 @@ export class MainComponent implements OnInit {
 
 }
 export class SearchResult{
-  store?:Store[]
+  store:Store[] = []
   drug?:Drug
 }

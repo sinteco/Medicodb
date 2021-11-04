@@ -7,11 +7,11 @@
       <button (keyup.enter)="searchdrug()" (click)="searchdrug()" type="button" class="btn btn-outline-primary">Search</button>
       <div class="row col-md-12"><br>
         <div class="col-md-3" *ngFor="let result of searchResult; let i = index">
-          <div *ngFor="let store of result.store | keyvalue">
+          <div style="display: none" *ngFor="let store of result.store">
           <br>
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">{{store.value}}</h5>
+                <h5 class="card-title">{{store.name}}</h5>
                 <p class="card-text">details is here...</p>
               </div>
             </div>
