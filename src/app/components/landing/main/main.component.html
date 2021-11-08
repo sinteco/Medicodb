@@ -6,8 +6,9 @@
       <input [(ngModel)]="search" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
       <button (keyup.enter)="searchdrug()" (click)="searchdrug()" type="button" class="btn btn-outline-primary">Search</button>
       <div class="row col-md-12"><br>
+        <div id="map" style="width: 100%; height: 330px;"></div>
         <div class="col-md-3" *ngFor="let result of searchResult; let i = index">
-          <div style="display: none" *ngFor="let store of result.store">
+          <div *ngFor="let store of result.store">
           <br>
             <div class="card">
               <div class="card-body">

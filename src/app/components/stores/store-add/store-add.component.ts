@@ -17,7 +17,9 @@ export class StoreAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.addstoreForm = new FormGroup({
-      name:new FormControl('')
+      name:new FormControl(''),
+      latitude:new FormControl(''),
+      longitude:new FormControl('')
     })
   }
   submit(form:FormGroup){

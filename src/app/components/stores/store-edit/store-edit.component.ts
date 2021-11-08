@@ -18,14 +18,21 @@ export class StoreEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.addstoreForm = new FormGroup({
-      name:new FormControl('')
+      name:new FormControl(''),
+      latitude:new FormControl(''),
+      longitude:new FormControl('')
     });
     this.activatedRoute.params.subscribe(paramId =>{
       this.idparam = paramId.id;
     });
     this.storeService.getById(this.idparam).subscribe(data=>{
       this.newStore = data;
-      this.addstoreForm.setValue({name:data.name});
+      this.addstoreForm.setValue(
+        {
+          name:data.name,
+          latitude:data.latitude,
+          longitude:data.longitude
+        });
     });
   }
   submit(form:FormGroup){

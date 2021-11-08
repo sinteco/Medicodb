@@ -6,6 +6,42 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+  <script type="text/javascript">
+    window.onload = function() {
+      L.mapquest.key = 'lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24';
+
+      var map = L.mapquest.map('map', {
+        center: [8.9806, 38.7578],
+        layers: L.mapquest.tileLayer('map'),
+        zoom: 12
+      });
+
+      L.marker([9.0157, 38.7558], {
+          icon: L.mapquest.icons.marker({
+                                          primaryColor: '#AA407F',
+                                          secondaryColor: '#3B5998',
+                                          shadow: true,
+                                          size: 'md',
+                                          symbol: 'P'}),
+          draggable: false,
+          color:'red'
+        }).bindPopup('Gishen Pharmacy').addTo(map);
+      L.marker([8.9831, 38.8101], {
+        icon: L.mapquest.icons.marker({
+                                        primaryColor: '#AA407F',
+                                        secondaryColor: '#3B5998',
+                                        shadow: true,
+                                        size: 'md',
+                                        symbol: 'P'}),
+        draggable: false,
+        color:'red'
+      }).bindPopup('Anbessa Gibe Pharmacy').addTo(map);
+
+      map.addControl(L.mapquest.control());
+    }
+  </script>
   <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 </head>
 <body>
