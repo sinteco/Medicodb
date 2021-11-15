@@ -1,0 +1,14 @@
+<form [formGroup]=adduserForm (ngSubmit)="submit(adduserForm)">
+    <div class="row col-md-6 form-group">
+      <label class="col-md-2 col-form-label" for="User name">Email</label>
+        <div class="col-md-10">
+            <input type="text" formControlName="email" class="form-control" placeholder="Enter email">
+        </div>
+      <label class="col-md-2 col-form-label" for="User name">Password</label>
+        <div class="col-md-10">
+          <input type="text" formControlName="password" class="form-control" placeholder="Enter Password">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  

@@ -22,6 +22,10 @@ import { MainComponent } from './components/landing/main/main.component';
 import { BalanceAddComponent } from './components/balance/balance-add/balance-add.component';
 import { BalanceListComponent } from './components/balance/balance-list/balance-list.component';
 import { BalanceEditComponent } from './components/balance/balance-edit/balance-edit.component';
+import { UserAddComponent } from './components/Users/user-add/user-add.component';
+import { UserEditComponent } from './components/Users/user-edit/user-edit.component';
+import { UserListComponent } from './components/Users/user-list/user-list.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { BalanceEditComponent } from './components/balance/balance-edit/balance-
     MainComponent,
     BalanceAddComponent,
     BalanceListComponent,
-    BalanceEditComponent
+    BalanceEditComponent,
+    UserAddComponent,
+    UserEditComponent,
+    UserListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

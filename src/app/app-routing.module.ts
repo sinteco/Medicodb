@@ -13,6 +13,10 @@ import { MainComponent } from './components/landing/main/main.component';
 import { BalanceListComponent } from './components/balance/balance-list/balance-list.component';
 import { BalanceEditComponent } from './components/balance/balance-edit/balance-edit.component';
 import { BalanceAddComponent } from './components/balance/balance-add/balance-add.component';
+import { UserListComponent } from './components/Users/user-list/user-list.component';
+import { UserAddComponent } from './components/Users/user-add/user-add.component';
+import { UserEditComponent } from './components/Users/user-edit/user-edit.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landingpage', pathMatch: 'full' },
@@ -28,6 +32,10 @@ const routes: Routes = [
   { path: 'balance/:id', component: BalanceEditComponent},
   { path: 'addbalance', component: BalanceAddComponent},
   { path: 'balance', component: BalanceListComponent},
+  { path: 'user/:id', component: UserEditComponent},
+  { path: 'adduser', component: UserAddComponent},
+  { path: 'user', component: UserListComponent},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
