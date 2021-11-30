@@ -1,14 +1,17 @@
-<form [formGroup]=adduserForm (ngSubmit)="submit(adduserForm)">
-    <div class="row col-md-6 form-group">
+<form id="form_login" [formGroup]=adduserForm (ngSubmit)="submit(adduserForm)">
+    <div class=" large row col-md-6 form-group">
       <label class="col-md-2 col-form-label" for="User name">Email</label>
-        <div class="col-md-10">
+        <div class="form_padding col-md-10">
             <input type="text" formControlName="email" class="form-control" placeholder="Enter email">
         </div>
       <label class="col-md-2 col-form-label" for="User name">Password</label>
-        <div class="col-md-10">
+        <div class="form_padding col-md-10">
           <input type="text" formControlName="password" class="form-control" placeholder="Enter Password">
         </div>
+        <div class="col-md-12">
+            <button style="width: 100%;" type="submit" class="btn btn-primary">Login</button>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    
   </form>
   

@@ -21,7 +21,8 @@ export class BalanceAddComponent implements OnInit {
   stores?:Store[];
   addbalanceForm:FormGroup|any;
   private newBalance:Balance = new Balance();
-  constructor(private balanceService:BalanceService,private routh:Router,private drugService: DrugService,private storeService:StoreService) { }
+  public sessionresult:string|any;
+  constructor(private balanceService:BalanceService,private routh:Router,private drugService: DrugService,private storeService:StoreService) {checkSession() }
 
   ngOnInit(): void {
     this.addbalanceForm = new FormGroup({
@@ -34,6 +35,13 @@ export class BalanceAddComponent implements OnInit {
     this.newBalance = form.value;
     this.balanceService.create(this.newBalance);
     this.routh.navigateByUrl('balance');
+  }
+  checkSession(){
+    this.sessionresult = sessionStorage.getItem('you have the privilage @medicodb');
+    if(this.sessionresult=="privilage@medicodb")
+      this.sessionresult = true;
+    else
+      this.sessionresult = false;
   }
   retriveAll(){
     this.drugService.getAll().snapshotChanges().pipe(

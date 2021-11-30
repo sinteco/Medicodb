@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         {
           sessionStorage.setItem('you have the privilage @medicodb', 'privilage@medicodb');
           
-          this.routh.navigateByUrl('');
+          this.routh.navigateByUrl('landingpage');
         }
         else
         {
