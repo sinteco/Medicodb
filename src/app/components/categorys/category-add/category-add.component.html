@@ -1,0 +1,8 @@
+<form [formGroup]=adddrugForm (ngSubmit)="submit(adddrugForm)">
+    <div class="form-group">
+      <label for="drug name">Drug Name</label>
+      <input type="text" formControlName="name" class="form-control" placeholder="Enter Drug name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  

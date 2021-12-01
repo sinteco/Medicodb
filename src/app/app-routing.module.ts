@@ -17,6 +17,9 @@ import { UserListComponent } from './components/Users/user-list/user-list.compon
 import { UserAddComponent } from './components/Users/user-add/user-add.component';
 import { UserEditComponent } from './components/Users/user-edit/user-edit.component';
 import { LoginComponent } from './components/login/login.component';
+import { CategoryAddComponent } from './components/categorys/category-add/category-add.component';
+import { CategoryListComponent } from './components/categorys/category-list/category-list.component';
+import { CategoryEditComponent } from './components/categorys/category-edit/category-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landingpage', pathMatch: 'full' },
@@ -35,6 +38,9 @@ const routes: Routes = [
   { path: 'user/:id', component: UserEditComponent},
   { path: 'adduser', component: UserAddComponent},
   { path: 'user', component: UserListComponent},
+  { path: 'category', component: CategoryListComponent},
+  { path: 'category/:id', component: CategoryEditComponent},
+  { path: 'addcategory', component: CategoryAddComponent},
   { path: 'login', component: LoginComponent}
 ];
 

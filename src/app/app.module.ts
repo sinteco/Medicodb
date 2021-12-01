@@ -26,6 +26,9 @@ import { UserAddComponent } from './components/Users/user-add/user-add.component
 import { UserEditComponent } from './components/Users/user-edit/user-edit.component';
 import { UserListComponent } from './components/Users/user-list/user-list.component';
 import { LoginComponent } from './components/login/login.component';
+import { CategoryAddComponent } from './components/categorys/category-add/category-add.component';
+import { CategoryEditComponent } from './components/categorys/category-edit/category-edit.component';
+import { CategoryListComponent } from './components/categorys/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { LoginComponent } from './components/login/login.component';
     UserAddComponent,
     UserEditComponent,
     UserListComponent,
-    LoginComponent
+    LoginComponent,
+    CategoryAddComponent,
+    CategoryEditComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,

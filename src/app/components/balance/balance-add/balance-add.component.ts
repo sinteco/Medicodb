@@ -22,7 +22,7 @@ export class BalanceAddComponent implements OnInit {
   addbalanceForm:FormGroup|any;
   private newBalance:Balance = new Balance();
   public sessionresult:string|any;
-  constructor(private balanceService:BalanceService,private routh:Router,private drugService: DrugService,private storeService:StoreService) {checkSession() }
+  constructor(private balanceService:BalanceService,private routh:Router,private drugService: DrugService,private storeService:StoreService) { }
 
   ngOnInit(): void {
     this.addbalanceForm = new FormGroup({
