@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { Drug } from 'src/app/models/drug.model';
-import { DrugService } from 'src/app/services/drug.service';
+import { Category } from 'src/app/models/category.model';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-category-list',
@@ -11,32 +11,32 @@ import { DrugService } from 'src/app/services/drug.service';
 })
 export class CategoryListComponent implements OnInit {
 
-  constructor(private drugService:DrugService,private routh:Router) { }
+  constructor(private categoryService:CategoryService,private routh:Router) { }
 
-  druges?:Drug[];
+  categorys?:Category[];
   ngOnInit(): void {
     this.retriveAll();
   }
 
   retriveAll(){
-    this.drugService.getAll().snapshotChanges().pipe(
+    this.categoryService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
           ({ id: c.payload.doc.id, ...c.payload.doc.data() })
         )
       )
     ).subscribe(data => {
-      this.druges = data;
+      this.categorys = data;
     });
   }
-  delete(drugid:any){
-    this.drugService.delete(drugid).then(()=>{
-      this.routh.navigateByUrl('drugs');
+  delete(categoryid:any){
+    this.categoryService.delete(categoryid).then(()=>{
+      this.routh.navigateByUrl('category');
     });
   }
   @Output() myEvent = new EventEmitter<string>();
-  edit(drug:Drug){
-    this.routh.navigateByUrl('drug/'+drug.id);
+  edit(category:Category){
+    this.routh.navigateByUrl('category/'+category.id);
   }
 
 }
