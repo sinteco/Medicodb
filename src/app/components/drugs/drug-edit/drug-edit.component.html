@@ -3,5 +3,11 @@
     <label for="drug name">Drug Name</label>
     <input type="text" formControlName="name" class="form-control" placeholder="Enter Drug name">
   </div>
+  <label for="select category">Select Category:
+    <select formControlName="categoryid" class="custom-select">
+      <option value=""></option>
+      <option *ngFor="let category of categorys" value="{{category.id}}">{{category.name}}</option>
+    </select>
+  </label>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

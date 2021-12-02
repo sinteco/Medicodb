@@ -36,14 +36,15 @@ export class BalanceAddComponent implements OnInit {
     this.balanceService.create(this.newBalance);
     this.routh.navigateByUrl('balance');
   }
-  checkSession(){
-    this.sessionresult = sessionStorage.getItem('you have the privilage @medicodb');
-    if(this.sessionresult=="privilage@medicodb")
-      this.sessionresult = true;
-    else
-      this.sessionresult = false;
-  }
+  // checkSession(){
+  //   this.sessionresult = sessionStorage.getItem('you have the privilage @medicodb');
+  //   if(this.sessionresult=="privilage@medicodb")
+  //     this.sessionresult = true;
+  //   else
+  //     this.sessionresult = false;
+  // }
   retriveAll(){
+    //drug
     this.drugService.getAll().snapshotChanges().pipe(
       map((changes: any[]) =>
         changes.map(c =>
@@ -53,6 +54,7 @@ export class BalanceAddComponent implements OnInit {
     ).subscribe(data => {
       this.druges = data;
     });
+    //store
     this.storeService.getAll().snapshotChanges().pipe(
       map((changes: any[]) =>
         changes.map(c =>
